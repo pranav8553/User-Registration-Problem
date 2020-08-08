@@ -19,15 +19,18 @@ PASSOWRD_PATTERN="^(?=.*[[:upper:]]).[[:alpha:]]{7,}$"
 #Pattern for Password Rule 3: Atleast 1 numeric number and Rule 2
 PASSOWRD_PATTERN="^(?=.*[[:upper:]])(?=.*[[:digit:]])[[:alnum:]]{8,}$"
 
+#Pattern for Password Rule 4: Exact 1 special character and Rule 3
+PASSWORD_PATTERN="^(?=[^@#$%!&]*[@#$%!&][^@#$%!&]*$)(?=.*[[:digit:]])(?=.*[[:upper:]])[A-Za-z0-9@#$%!&]{8,}$"
+
 #To check Validation for User entries
 function checkValidation() {
 	input=$1
 	pattern=$2
 	if [[ $input =~ $pattern ]]
 	then
-		echo "Valid $3!"
+		echo -e "Valid $3!\n"
 	else
-		echo "Invalid $3!"
+		echo -e "Invalid $3!\n"
 	fi
 }
 
