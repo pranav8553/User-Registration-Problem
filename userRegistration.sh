@@ -2,16 +2,19 @@
 shopt -s extglob
 
 #Pattern for First name and Last name
-NAME_PATTERN='^[A-Z]{1}[A-Za-z]{2,}$'
+NAME_PATTERN='^[[:upper:]]{1}[[:alpha:]]{2,}$'
 
 #Pattern for EMail address
-EMAIL_PATTERN='^[A-Za-z]{3,}([.+_-]?[A-Za-z0-9]+)?[@][A-Za-z0-9]+[.][A-Za-z]{2,4}([.][A-Za-z]{2,4})?$'
+EMAIL_PATTERN='^[[:alpha:]]{3,}([.+_-]?[[:alnum:]]+)?[@][[:alnum:]]+[.][[:alpha:]]{2,4}([.][[:alpha:]]{2,4})?$'
 
 #Pattern for Mobile Number
 MOBILE_PATTERN='^[0-9]{1,3}[ ][7-9]{1}[0-9]{9}$'
 
 #Pattern for Password Rule 1: Minimum 8 chracters
-PASSOWRD_PATTERN="^[a-zA-Z]{8,}$"
+PASSOWRD_PATTERN="^[[:alpha:]]{8,}$"
+
+#Pattern for Password Rule 2: Atleast one upper case letter and Rule 1
+PASSOWRD_PATTERN="^(?=.*[[:upper:]]).[[:alpha:]]{7,}$"
 
 #To check Validation for User entries
 function checkValidation() {
