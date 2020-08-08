@@ -8,7 +8,10 @@ NAME_PATTERN='^[A-Z]{1}[A-Za-z]{2,}$'
 EMAIL_PATTERN='^[A-Za-z]{3,}([.+_-]?[A-Za-z0-9]+)?[@][A-Za-z0-9]+[.][A-Za-z]{2,4}([.][A-Za-z]{2,4})?$'
 
 #Pattern for Mobile Number
-mobilePattern='^[0-9]{1,3}[ ][7-9]{1}[0-9]{9}$'
+MOBILE_PATTERN='^[0-9]{1,3}[ ][7-9]{1}[0-9]{9}$'
+
+#Pattern for Password Rule 1: Minimum 8 chracters
+PASSOWRD_PATTERN="^[a-zA-Z]{8,}$"
 
 #To check Validation for User entries
 function checkValidation() {
@@ -32,4 +35,7 @@ read -p "Enter your EMail address: " eMail
 checkValidation $eMail $EMAIL_PATTERN 'EMail address'
 
 read -p "Enter your Mobile number: " mobileNumber
-checkValidation "$mobileNumber" "$mobilePattern" 'Mobile number'
+checkValidation "$mobileNumber" "$MOBILE_PATTERN" 'Mobile number'
+
+read -p "Enter your Password: " password
+checkValidation $password $PASSOWRD_PATTERN 'Password'
